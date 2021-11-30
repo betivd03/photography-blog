@@ -1,4 +1,13 @@
+import { Routes, Route } from "react-router-dom";
+
 import Nav from "./components/Nav";
+import Home from "./components/Home";
+import Gallery from "./components/Gallery";
+import About from "./components/About";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import AddPhoto from "./components/AddPhoto";
+import MyProfile from "./components/MyProfile";
 
 function App() {
     return (
@@ -6,8 +15,17 @@ function App() {
             <Nav />
 
             <div className="root">
-                
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/add" element={<AddPhoto />} />
+                    <Route path="/my-profile" element={<MyProfile />} />
+                </Routes>
             </div>
+
             <footer>All rights reserved &copy;</footer>
         </div>
     );
