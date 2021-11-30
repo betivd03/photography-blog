@@ -1,0 +1,68 @@
+div.root>form>h1 {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+ul#form {
+    margin-left: -40px;
+}
+
+input {
+    font-size: 20px;
+    width: 500px;
+    height: 50px;
+    border: 3px solid #CCCCCC;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    background-color: transparent;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    margin-bottom: 10px;
+}
+
+::placeholder {
+    color: lightgray;
+}
+
+#login-page,
+#register-page {
+    padding-top: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.loginForm li,
+.registerForm li {
+    list-style-type: none;
+}
+
+#loginBtn,
+#registerBtn {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 15px;
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 35px;
+}
+
+.formTitle {
+    font-size: 50px;
+}
+
+p#login,
+p#register {
+    font-size: 20px;
+}
+
+p#login>a,
+p#register>a {
+    font-size: 20px;
+    text-decoration: none;
+    color: darkblue
+}
