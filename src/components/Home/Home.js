@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 
 import PhotoCard from "./PhotoCard";
 
-import * as photoService from "../../services/photoService.js";
+import * as photosService from "../../services/photosService.js";
 
 const Home = () => {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
-        photoService.getAll()
+        photosService.getAll()
             .then(result => {
                 setPhotos(result);
             })

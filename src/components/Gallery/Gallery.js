@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 
 import Post from "./Post";
 
-import * as photoService from "../../services/photoService.js";
+import * as photosService from "../../services/photosService.js";
 
 const Gallery = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        photoService.getAll()
+        photosService.getAll()
             .then(result => {
                 setPosts(result);
             })
