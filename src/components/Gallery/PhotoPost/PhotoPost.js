@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const Post = ({
-    post
+const PhotoPost = ({
+    photo
 }) => {
     return (
         <div className="post">
             <h3>Ocean</h3>
-            <Link to={`/details/postId`}>Details</Link>
+            <Link to={`/details/photoId`}>Details</Link>
             <div className="creator">
                 <img src="/images/profile-photo.jpg" alt="Profile" />
                 <p>@username</p>
@@ -18,4 +18,4 @@ const Post = ({
     );
 };
 
-export default Post;
+export default PhotoPost;
