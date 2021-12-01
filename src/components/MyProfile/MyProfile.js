@@ -1,4 +1,19 @@
+import { useState, useEffect } from "react";
+
+import MyPhotoCard from "./MyPhotoCard";
+
+import * as photoService from "../../services/photoService.js";
+
 const MyProfile = () => {
+    const [myPhotos, setMyPhotos] = useState([]);
+
+    useEffect(() => {
+        photoService.getAll()
+            .then(result => {
+                setMyPhotos(result);
+            })
+    }, []);
+
     return (
         <section id="my-profile-page">
             <div className="profile-info">
@@ -10,32 +25,20 @@ const MyProfile = () => {
                 </div>
             </div>
             <hr />
-            <div className="my-photos">
-                <div className="my-photo-card">
-                    <h3>Ocean</h3>
-                    <div className="image">
-                        <img src="/images/ocean.jpg" alt="Ocean" />
+
+            {myPhotos.length > 0
+                ? (
+                    <div className="my-photos">
+                        {myPhotos.map(x => <MyPhotoCard key={x._id} photo={x} />)}
                     </div>
-                    <a href="/details/photoId">Details</a>
-                </div>
-                <div className="my-photo-card">
-                    <h3>Is</h3>
-                    <div className="image">
-                        <img src="/images/ocean.jpg" alt="Ocean" />
+                )
+                : (
+                    <div className="no-photos">
+                        <p>No Photos Yet!</p>
                     </div>
-                    <a href="/details/photoId">Details</a>
-                </div>
-                <div className="my-photo-card">
-                    <h3>Blue</h3>
-                    <div className="image">
-                        <img src="/images/ocean.jpg" alt="Ocean" />
-                    </div>
-                    <a href="/details/photoId">Details</a>
-                </div>
-            </div>
-            <div className="no-photos">
-                <p>No Photos Yet!</p>
-            </div>
+                )
+            }
+            
         </section>
     );
 };

@@ -1,36 +1,39 @@
+import { useState, useEffect } from "react";
+
+import PhotoCard from "./PhotoCard";
+
+import * as photoService from "../../services/photoService.js";
+
 const Home = () => {
+    const [photos, setPhotos] = useState([]);
+
+    useEffect(() => {
+        photoService.getAll()
+            .then(result => {
+                setPhotos(result);
+            })
+    }, []);
+
     return (
         <section id="home-page">
             <header>
                 <h1 id="home-blog-header">Welcome to Photography Blog!</h1>
                 <p>The best blog for sharing professional photos!</p>
             </header>
-            <div className="photos">
-                <div className="photo-card">
-                    <h3>Ocean</h3>
-                    <div className="image">
-                        <img src="/images/ocean.jpg" alt="Ocean" />
+
+            {photos.length > 0
+                ? (
+                    <div className="photos">
+                        {photos.map(x => <PhotoCard key={x._id} photo={x} />)}
                     </div>
-                    <a href="/details/photoId">Details</a>
-                </div>
-                <div className="photo-card">
-                    <h3>Is</h3>
-                    <div className="image">
-                        <img src="/images/ocean.jpg" alt="Is" />
+                )
+                : (
+                    <div className="no-photos">
+                        <p>No Photos Yet!</p>
                     </div>
-                    <a href="/details/photoId">Details</a>
-                </div>
-                <div className="photo-card">
-                    <h3>Blue</h3>
-                    <div className="image">
-                        <img src="/images/ocean.jpg" alt="Blue" />
-                    </div>
-                    <a href="/details/photoId">Details</a>
-                </div>
-            </div>
-            <div className="no-photos">
-                <p>No Photos Yet!</p>
-            </div>
+                )
+            }
+            
         </section>
     );
 };
