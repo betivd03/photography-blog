@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import Post from "./Post";
+import PhotoPost from "./PhotoPost";
 
 import * as photosService from "../../services/photosService.js";
 
@@ -21,7 +21,7 @@ const Gallery = () => {
             {posts.length > 0 
                 ? (
                     <div className="posts">
-                        {posts.map(x => <Post key={x._id} post={x} />)}
+                        {posts.map(x => <PhotoPost key={x._id} post={x} />)}
                     </div>
                 )
                 : (
