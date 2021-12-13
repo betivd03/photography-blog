@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import AddPhoto from "./components/AddPhoto";
 import MyProfile from "./components/MyProfile";
+import PhotoDetails from "./components/PhotoDetails/PhotoDetails.js";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/details/:photoId" element={<PhotoDetails />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
