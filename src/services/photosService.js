@@ -13,3 +13,9 @@ export const getLatest = async () => {
     let result = Object.values(latestPhotos);
     return result;
 };
+
+export const getOne = async (photoId) => {
+    let response = await fetch(`${baseUrl}/photos/${photoId}`);
+    let details = await response.json();
+    return details;
+}
