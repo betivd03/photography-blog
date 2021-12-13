@@ -8,9 +8,15 @@ const Home = () => {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
-        photosService.getAll()
+        photosService.getLatest()
             .then(result => {
-                setPhotos(result);
+                let resultArr = [];
+                for (let i = 0; i < 3; i++) {
+                    resultArr.push(result[i]);
+                }
+                console.log(result);
+                console.log(resultArr);
+                setPhotos(resultArr);
             })
     }, []);
 
