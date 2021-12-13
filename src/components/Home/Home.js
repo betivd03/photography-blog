@@ -14,8 +14,6 @@ const Home = () => {
                 for (let i = 0; i < 3; i++) {
                     resultArr.push(result[i]);
                 }
-                console.log(result);
-                console.log(resultArr);
                 setPhotos(resultArr);
             })
     }, []);
