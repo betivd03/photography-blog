@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext.js";
 
 import MyPhotoCard from "./MyPhotoCard";
 
@@ -7,8 +8,10 @@ import * as photosService from "../../services/photosService.js";
 const MyProfile = () => {
     const [myPhotos, setMyPhotos] = useState([]);
 
+    const { user } = useContext(AuthContext);
+
     useEffect(() => {
-        photosService.getAll()
+        photosService.getMy(user._id)
             .then(result => {
                 setMyPhotos(result);
             })
@@ -21,7 +24,7 @@ const MyProfile = () => {
                     <img src="/images/profile-photo.jpg" alt="Profile" />
                 </div>
                 <div className="user-info">
-                    <p>@username</p>
+                    <p>{user.username}</p>
                 </div>
             </div>
             <hr />
