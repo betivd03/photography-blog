@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+
+import { AuthContext } from "./contexts/AuthContext.js";
 
 import Nav from "./components/Nav";
 import Home from "./components/Home";
@@ -11,25 +14,29 @@ import MyProfile from "./components/MyProfile";
 import PhotoDetails from "./components/PhotoDetails/PhotoDetails.js";
 
 function App() {
+    const [user, setUser] = useState({});
+
     return (
-        <div>
-            <Nav />
+        <AuthContext.Provider value={user} >
+            <div>
+                <Nav />
 
-            <div className="root">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/details/:photoId" element={<PhotoDetails />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/add" element={<AddPhoto />} />
-                    <Route path="/my-profile" element={<MyProfile />} />
-                </Routes>
+                <div className="root">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/gallery" element={<Gallery />} />
+                        <Route path="/details/:photoId" element={<PhotoDetails />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/add" element={<AddPhoto />} />
+                        <Route path="/my-profile" element={<MyProfile />} />
+                    </Routes>
+                </div>
+
+                <footer>All rights reserved &copy;</footer>
             </div>
-
-            <footer>All rights reserved &copy;</footer>
-        </div>
+        </AuthContext.Provider>
     );
 }
 
