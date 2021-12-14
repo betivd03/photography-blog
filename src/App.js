@@ -12,9 +12,18 @@ import Register from "./components/Register";
 import AddPhoto from "./components/AddPhoto";
 import MyProfile from "./components/MyProfile";
 import PhotoDetails from "./components/PhotoDetails/PhotoDetails.js";
+import Logout from "./components/Logout/Logout.js";
+
+const initialAuth = {
+    email: "",
+    username: "",
+    _createdOn: "",
+    _id: "",
+    accessToken: ""
+};
 
 function App() {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(initialAuth);
 
     const login = (authData) => {
         setUser(authData);
@@ -24,8 +33,12 @@ function App() {
         setUser(authData);
     };
 
+    const logout = () => {
+        setUser(initialAuth);
+    }
+
     return (
-        <AuthContext.Provider value={{user, login, register}} >
+        <AuthContext.Provider value={{user, login, register, logout}} >
             <div>
                 <Nav />
 
@@ -37,6 +50,7 @@ function App() {
                         <Route path="/about" element={<About />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/add" element={<AddPhoto />} />
                         <Route path="/my-profile" element={<MyProfile />} />
                     </Routes>
