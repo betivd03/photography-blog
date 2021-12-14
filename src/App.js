@@ -20,8 +20,12 @@ function App() {
         setUser(authData);
     };
 
+    const register = (authData) => {
+        setUser(authData);
+    };
+
     return (
-        <AuthContext.Provider value={{user, login}} >
+        <AuthContext.Provider value={{user, login, register}} >
             <div>
                 <Nav />
 
