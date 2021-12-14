@@ -1,35 +1,15 @@
-import * as api from "../helpers/api.js";
-import * as request from "../helpers/requester.js";
+const baseUrl = "http://localhost:3030/users";
 
-export const register = (email, username, password) => {
-    return request.post(api.register, { email, username, password })
-        .then(user => {
-            setUser(user);
-            return user;
-        })
-};
+export const login = async (email, password) => {
+    let response = await fetch(`${baseUrl}/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email, password})
+    });
 
-export const login = (username, password) => {
-    return request.post(api.login, { username, password })
-        .then(user => {
-            setUser(user);
-            return user;
-        })
-};
+    let result = await response.json();
 
-export const logout = () => {
-    return request.get(api.logout)
-        .then(() => localStorage.removeItem('user'));
-};
-
-function setUser(data) {
-    localStorage.setItem('user', JSON.stringify(data));
-};
-
-export function getUser(data) {
-    let user = localStorage.getItem('user');
-    
-    if (user) {
-        return JSON.parse(user);
-    }
+    return result;
 };

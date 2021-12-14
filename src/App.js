@@ -16,8 +16,12 @@ import PhotoDetails from "./components/PhotoDetails/PhotoDetails.js";
 function App() {
     const [user, setUser] = useState({});
 
+    const login = (authData) => {
+        setUser(authData);
+    };
+
     return (
-        <AuthContext.Provider value={user} >
+        <AuthContext.Provider value={{user, login}} >
             <div>
                 <Nav />
 
