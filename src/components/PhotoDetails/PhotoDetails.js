@@ -14,7 +14,6 @@ const PhotoDetails = () => {
     useEffect(() => {
         photosService.getOne(photoId)
             .then(result => {
-                console.log(result);
                 setDetails(result)
             })
     }, []);

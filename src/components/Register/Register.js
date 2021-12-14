@@ -18,8 +18,6 @@ const Register = () => {
         if (password === rePassword) {
             authService.register(email, username, password)
                 .then(res => {
-                    console.log('register');
-                    console.log(res);
                     register(res);
                     navigate('/');
                 });
