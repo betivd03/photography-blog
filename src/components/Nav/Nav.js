@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext.js";
 
 const Nav = () => {
@@ -6,28 +7,28 @@ const Nav = () => {
 
     let userNav = (
         <div className="logged">
-            <a href="/add">Add Photo</a>
-            <a href="/my-profile">My Profile</a>
-            <a href="/logout">Logout</a>
+            <Link to="/add">Add Photo</Link>
+            <Link to="/my-profile">My Profile</Link>
+            <Link to="/logout">Logout</Link>
             <p id="welcome">Welcome, {user.username}</p>
         </div>
     );
 
     let guestNav = (
         <div className="guest">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
         </div>
     );
 
     return (
         <nav>
             <div className="nav-image">
-                <a href="/"><img src="/images/photograhy_blog_logo.png" alt="Logo" /></a>
+                <Link to="/"><img src="/images/photograhy_blog_logo.png" alt="Logo" /></Link>
             </div>
             <div className="navbar">
-                <a href="/gallery">Gallery</a>
-                <a href="/about">About</a>
+                <Link to="/gallery">Gallery</Link>
+                <Link to="/about">About</Link>
                 
                 {user.username 
                     ? userNav
