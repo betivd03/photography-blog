@@ -5,11 +5,11 @@ const MyPhotoCard = ({
 }) => {
     return (
         <div className="my-photo-card">
-            <h3>Ocean</h3>
+            <h3>{photo.title}</h3>
             <div className="image">
-                <img src="/images/ocean.jpg" alt="Ocean" />
+                <img src={photo.imageUrl} alt={photo.title} />
             </div>
-            <Link to={`/details/postId`}>Details</Link>
+            <Link to={`/details/${photo._id}`}>Details</Link>
         </div>
     );
 };
