@@ -5,7 +5,7 @@ const Login = () => {
                 <h1 className="formTitle">Login</h1>
                 <ul id="form">
                     <li>
-                        <input type="text" id="username" name="username" placeholder="Username" />
+                        <input type="text" id="email" name="email" placeholder="Email" />
                     </li>
                     <li>
                         <input type="password" id="password" name="password" placeholder="Password" />
