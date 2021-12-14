@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext.js";
 
 import * as authService from "../../services/authService.js";
@@ -45,7 +45,7 @@ const Register = () => {
                         <button id="registerBtn">Register</button>
                     </li>
                     <li>
-                        <p id="login">Already have an account? <a href="/login">Sign in</a></p>
+                        <p id="login">Already have an account? <Link to="/login">Sign in</Link></p>
                     </li>
                 </ul>
             </form>
