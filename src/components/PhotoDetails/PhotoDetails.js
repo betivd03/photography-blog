@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext.js";
 
 import * as photosService from "../../services/photosService.js";
+import * as likesService from "../../services/likesService.js";
 
 const PhotoDetails = () => {
     const navigate = useNavigate();
@@ -27,6 +28,15 @@ const PhotoDetails = () => {
             .then(() => {
                 navigate('/');
             });
+    };
+
+    const onLikeClickHandler = (e) => {
+        e.preventDefault();
+
+        likesService.likePhoto(photoId, user.accessToken)
+            .then(() => {
+                console.log('liked');
+            })
     }
 
     let ownerButtons = (
@@ -38,7 +48,7 @@ const PhotoDetails = () => {
 
     let userButtons = (
         <div className="user">
-            <Link to="/details/photoId">Like</Link>
+            <a href="#" onClick={onLikeClickHandler}>Like</a>
             <span>Liked</span>
         </div>
     );
