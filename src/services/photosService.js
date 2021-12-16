@@ -54,3 +54,15 @@ export const edit = async (photoData, photoId, token) => {
     let result = await response.json();
     return result;
 };
+
+export const del = async (photoId, token) => {
+    let response = await fetch(`${baseUrl}/${photoId}`, {
+        method: 'DELETE', 
+        headers: {
+            'X-Authorization': token
+        }
+    });
+    
+    let result = await response.json();
+    return result;
+};

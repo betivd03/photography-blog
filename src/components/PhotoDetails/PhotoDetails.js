@@ -20,10 +20,19 @@ const PhotoDetails = () => {
             });
         }, []);
 
+    const onDeleteClickHandler = (e) => {
+        e.preventDefault();
+
+        photosService.del(photoId, user.accessToken)
+            .then(() => {
+                navigate('/');
+            });
+    }
+
     let ownerButtons = (
         <div className="owner">
             <Link to={`/details/${photoId}/edit`}>Edit</Link>
-            <Link to="/details/photoId">Delete</Link>
+            <a href="#" onClick={onDeleteClickHandler}>Delete</a>
         </div>
     );
 
