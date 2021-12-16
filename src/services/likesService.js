@@ -12,4 +12,16 @@ export const likePhoto = async (photoId, token) => {
 
     let result = await response.json();
     return result;
-}
+};
+
+export const getLikesPerPhoto = async (photoId) => {
+    let response = await fetch(`${baseUrl}?where=photoId%3D%22${photoId}%22&distinct=_ownerId&count`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    let result = await response.json();
+    return result;
+};

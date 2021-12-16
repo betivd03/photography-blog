@@ -21,6 +21,15 @@ const PhotoDetails = () => {
             });
         }, []);
 
+    const [likes, setLikes] = useState([]);
+
+    useEffect(() => {
+        likesService.getLikesPerPhoto(photoId)
+            .then(res => {
+                setLikes(res);
+            });
+    }, []);
+
     const onDeleteClickHandler = (e) => {
         e.preventDefault();
 
@@ -73,7 +82,7 @@ const PhotoDetails = () => {
                         )}
 
                         <div className="likes">
-                            <span>Liked by: 3 people</span>
+                            <span>Liked by: {likes} people</span>
                         </div>
                     </div>
                     
