@@ -25,3 +25,15 @@ export const getLikesPerPhoto = async (photoId) => {
     let result = await response.json();
     return result;
 };
+
+export const getLikesPerUser = async (photoId, userId) => {
+    let response = await fetch(`${baseUrl}?where=photoId%3D%22${photoId}%22%20and%20_ownerId%3D%22${userId}%22&count`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    let result = await response.json();
+    return result;
+};

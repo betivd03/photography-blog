@@ -30,6 +30,15 @@ const PhotoDetails = () => {
             });
     }, []);
 
+    const [userLikes, setUserLikes] = useState([]);
+
+    useEffect(() => {
+        likesService.getLikesPerUser(photoId, user._id)
+            .then(res => {
+                setUserLikes(res);
+            });
+    });
+
     const onDeleteClickHandler = (e) => {
         e.preventDefault();
 
@@ -57,8 +66,9 @@ const PhotoDetails = () => {
 
     let userButtons = (
         <div className="user">
-            <a href="#" onClick={onLikeClickHandler}>Like</a>
-            <span>Liked</span>
+            {userLikes > 0
+                ? <span>Liked</span>
+                : <a href="#" onClick={onLikeClickHandler}>Like</a>}
         </div>
     );
 
