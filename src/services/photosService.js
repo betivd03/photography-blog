@@ -39,4 +39,18 @@ export const create = async (photoData, token, username) => {
 
     let result = await response.json();
     return result;
-}
+};
+
+export const edit = async (photoData, photoId, token) => {
+    let response = await fetch(`${baseUrl}/${photoId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify(photoData)
+    });
+
+    let result = await response.json();
+    return result;
+};

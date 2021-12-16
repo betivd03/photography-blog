@@ -22,7 +22,7 @@ const PhotoDetails = () => {
 
     let ownerButtons = (
         <div className="owner">
-            <Link to="/details/photoId">Edit</Link>
+            <Link to={`/details/${photoId}/edit`}>Edit</Link>
             <Link to="/details/photoId">Delete</Link>
         </div>
     );

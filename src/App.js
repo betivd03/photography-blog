@@ -13,6 +13,7 @@ import AddPhoto from "./components/AddPhoto";
 import MyProfile from "./components/MyProfile";
 import PhotoDetails from "./components/PhotoDetails/PhotoDetails.js";
 import Logout from "./components/Logout/Logout.js";
+import EditPhoto from "./components/EditPhoto/EditPhoto.js";
 
 const initialAuth = {
     email: "",
@@ -46,6 +47,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/gallery" element={<Gallery />} />
+                        <Route path="/details/:photoId/edit" element={<EditPhoto />} />
                         <Route path="/details/:photoId" element={<PhotoDetails />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/login" element={<Login />} />
