@@ -44,9 +44,9 @@ const PhotoDetails = () => {
 
         likesService.likePhoto(photoId, user.accessToken)
             .then(() => {
-                console.log('liked');
-            })
-    }
+                navigate('/');
+            });
+    };
 
     let ownerButtons = (
         <div className="owner">
