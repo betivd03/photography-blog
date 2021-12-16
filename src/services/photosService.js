@@ -26,3 +26,17 @@ export const getMy = async (ownerId) => {
     let result = Object.values(myPosts);
     return result;
 };
+
+export const create = async (photoData, token, username) => {
+    let response = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify({...photoData, owner: username})
+    });
+
+    let result = await response.json();
+    return result;
+}

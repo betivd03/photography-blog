@@ -1,7 +1,35 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext.js";
+
+import * as photosService from "../../services/photosService.js";
+
 const AddPhoto = () => {
+    const { user } = useContext(AuthContext); 
+    
+    const navigate = useNavigate();
+
+    const onAddSubmitHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        let { title, category, description, location, imageUrl } = Object.fromEntries(formData);
+
+        photosService.create({
+            title,
+            category,
+            description,
+            location,
+            imageUrl
+        }, user.accessToken, user.username)
+            .then(() => {
+                navigate('/');
+            });
+    };
+
     return (
         <section id="add-photo-page">
-            <form action="" method="POST" className="addPhotoForm">
+            <form action="" method="POST" className="addPhotoForm" onSubmit={onAddSubmitHandler}>
                 <h1 className="formTitle">Add Photo</h1>
                 <ul id="form">
                     <li>
