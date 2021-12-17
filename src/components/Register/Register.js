@@ -32,13 +32,14 @@ const Register = () => {
             return setError('Repeat password must be at least 5 characters long!');
         } 
 
-        if (password === rePassword) {
-            authService.register(email, username, password)
-                .then(res => {
-                    register(res);
-                    navigate('/');
-                });
-        }
+        authService.register(email, username, password)
+            .then(res => {
+                register(res);
+                navigate('/');
+            })
+            .catch(error => {
+                setError(error);
+            });
     };
 
     return (

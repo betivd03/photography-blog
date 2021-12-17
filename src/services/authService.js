@@ -11,7 +11,11 @@ export const login = async (email, password) => {
 
     let result = await response.json();
 
-    return result;
+    if (response.ok) {
+        return result;
+    } else {
+        throw result.message;
+    }
 };
 
 export const register = async (email, username, password) => {
@@ -25,7 +29,11 @@ export const register = async (email, username, password) => {
 
     let result = await response.json();
 
-    return result;
+    if (response.ok) {
+        return result;
+    } else {
+        throw result.message;
+    }
 };
 
 export const logout = async (token) => {
