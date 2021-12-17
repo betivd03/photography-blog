@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext.js";
 
@@ -9,11 +9,25 @@ const AddPhoto = () => {
     
     const navigate = useNavigate();
 
+    const [error, setError] = useState([]);
+
     const onAddSubmitHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
         let { title, category, description, location, imageUrl } = Object.fromEntries(formData);
+        
+        if (title === '' || category === '' || description === '' || location === '' || imageUrl === '') {
+            return setError('All fields are required!');
+        } else if (title.length < 3) {
+            return setError('Title must be at least 3 characters long!');
+        } else if (category.length < 3) {
+            return setError('Category must be at least 3 characters long!');
+        } else if (description.length < 3) {
+            return setError('Description must be at least 3 characters long!');
+        } else if (location.length < 3) {
+            return setError('Location must be at least 3 characters long!');
+        }
 
         photosService.create({
             title,
@@ -29,6 +43,10 @@ const AddPhoto = () => {
 
     return (
         <section id="add-photo-page">
+            {error.length === 0 
+                ? <div className="hidden"></div>
+                : <div className="error-div"><p>{error}</p></div>}
+
             <form action="" method="POST" className="addPhotoForm" onSubmit={onAddSubmitHandler}>
                 <h1 className="formTitle">Add Photo</h1>
                 <ul id="form">
