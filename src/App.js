@@ -11,9 +11,10 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import AddPhoto from "./components/AddPhoto";
 import MyProfile from "./components/MyProfile";
-import PhotoDetails from "./components/PhotoDetails/PhotoDetails.js";
-import Logout from "./components/Logout/Logout.js";
-import EditPhoto from "./components/EditPhoto/EditPhoto.js";
+import PhotoDetails from "./components/PhotoDetails";
+import Logout from "./components/Logout";
+import EditPhoto from "./components/EditPhoto";
+import ErrorPage from "./components/ErrorPage";
 
 const initialAuth = {
     email: "",
@@ -55,6 +56,7 @@ function App() {
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/add" element={<AddPhoto />} />
                         <Route path="/my-profile" element={<MyProfile />} />
+                        <Route path="*" element={<ErrorPage />} />
                     </Routes>
                 </div>
 
