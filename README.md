@@ -1,3 +1,33 @@
+# Photography Blog
+
+Welcome to Photography Blog! The best blog for sharing professional photos!
+
+## Authentication 
+
+The application is available for logged-in and guest users. 
+- After registration, logged-in users can add new photo, edit it, delete it and like others' photos. Also, they can see their own photos.
+- Guest users can go only to Home, Gallery and About page and to Login and Register.
+
+## Pages
+
+### Pages that can be accessed by all users:
+- Home Page - on Home users can see latest 3 photos which are posted.
+- Gallery Page - on Gallery users can see all photos.
+- About Page - there is an info about the blog and the blog's owner.
+- Photo Details Page - all users can see number of likes, but only logged-in users can like photos and owner can edit or delete the photo.
+
+### Pages that can be accessed only by guest users:
+- Login and Register Pages - guests can login or register to access the private parts of the blog.
+
+### Pages that can be accessed only by logged-in users:
+- Add Photo Page - users can post new photo in blog.
+- My Profile Page - users can see all their photos.
+- Edit Photo Page - owner of the photo can edit data about it.
+- Delete - owner of the photo can delete it.
+
+# ReactJS Documentation
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
