@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "./PhotoCard.css";
+
 const PhotoCard = ({
     photo
 }) => {
