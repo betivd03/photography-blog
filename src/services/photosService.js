@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:3030/data/photos";
+// const baseUrl = "http://localhost:3030/data/photos";
+const baseUrl = "https://photography-blog-server.herokuapp.com/data/photos";
 
 export const getAll = async () => {
     let response = await fetch(baseUrl);

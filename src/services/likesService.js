@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:3030/data/likes";
+// const baseUrl = "http://localhost:3030/data/likes";
+const baseUrl = "https://photography-blog-server.herokuapp.com/data/likes";
 
 export const likePhoto = async (photoId, token) => {
     let response = await fetch(`${baseUrl}`, {
