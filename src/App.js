@@ -54,11 +54,11 @@ function App() {
                             <Route path="/add" element={<AddPhoto />} />
                             <Route path="/details/:photoId/edit" element={<EditPhoto />} />
                             <Route path="/my-profile" element={<MyProfile />} />
-                            <Route path="/logout" element={<Logout />} />
                         </Route>
-                        <Route path="/details/:photoId" element={<PhotoDetails />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/details/:photoId" element={<PhotoDetails />} />
                         <Route path="/error" element={<ErrorPage />} />
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>
